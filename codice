@@ -1,0 +1,114 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Venturi.Nicolas._3J.numeriromani
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //programma di conversione in numeri romani di nicolas venturi 3j
+            int anno = 0, x = 0;
+            string strAnno = "", strRom="";
+            do
+            {
+                Console.WriteLine("inserisci un numero fino a 3999 da convertire i numeri romani");
+                strAnno = Console.ReadLine();
+                anno = Convert.ToInt32(strAnno);
+            } while (anno > 3999);
+            while (x==0)
+            {
+                if(anno>=1000)
+                {
+                    anno = anno - 1000;
+                    strRom = strRom + "M";
+                }
+                if(anno<1000 && anno>=500)
+                {
+                    if (anno < 1000 && anno >= 900)
+                    {
+                        anno = anno - 900;
+                        strRom = strRom + "CM";
+                    }
+                    else
+                    {
+                        anno = anno - 500;
+                        strRom = strRom + "D";
+                    }
+                }
+                if(anno<500 && anno>=100)
+                {
+                    if(anno<500 && anno>=400)
+                    {
+                        anno = anno - 400;
+                        strRom = strRom + "CD";
+                    }
+                    else
+                    {
+                        anno = anno - 100;
+                        strRom = strRom + "C";
+                    }
+                }
+                if(anno<100 && anno>=50)
+                {
+                    if(anno<100 && anno>=90)
+                    {
+                        anno = anno - 90;
+                        strRom = strRom + "XC";
+                    }
+                    else
+                    {
+                        anno = anno - 50;
+                        strRom = strRom + "L";
+                    }
+                }
+                if(anno<50 && anno>=10)
+                {
+                    if(anno<50 && anno>=40)
+                    {
+                        anno = anno - 40;
+                        strRom = strRom + "XL";
+                    }
+                    else
+                    {
+                        anno = anno - 10;
+                        strRom = strRom + "X";
+                    }
+                }
+                if(anno<10 && anno>=5)
+                {
+                    if(anno<10 && anno>=9)
+                    {
+                        anno = anno - 9;
+                        strRom = strRom + "IX";
+                    }
+                    else
+                    {
+                        anno = anno - 5;
+                        strRom = strRom + "V";
+                    }
+                }
+                if(anno<5 && anno>=4)
+                {
+                    anno = anno - 4;
+                    strRom = strRom + "IV";
+                }
+                if(anno<4 && anno>=1)
+                {
+                    anno = anno - 1;
+                    strRom = strRom + "I";
+                }
+                if(anno==0)
+                {
+                    x = 1;
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("il numero inserito in numeri romani risulta:" + strRom);
+            Console.ReadLine();
+        }
+    }
+}
